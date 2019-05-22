@@ -27,47 +27,95 @@ import React from 'react';
 // export default Hello;
 
 
-class Bomb extends React.Component{
+// class Bomb extends React.Component{
+//     state = {
+//         count:0,
+//         message:'',
+//     };
+
+//     componentDidMount(){
+//         let interval = setInterval(() => {
+//             this.setState({
+//                 count: this.state.count +1,
+//             })
+//             this.handleCount(interval);
+//         }, 1000)
+//     }
+
+//     handleCount = interval => {
+//         if (this.state.count >= 8){
+//             this.setState({
+//                 message: 'BOOM!!!',
+//             })
+//             clearInterval(interval);
+//         }
+//         else if(this.state.count % 2 === 0){
+//             this.setState({
+//                 message: 'Tick',
+//             });
+//         }
+//         else {
+//             this.setState({
+//                 message: 'Tock',
+//             })
+//         }
+//     }
+
+//     render(){
+//         return(
+//             <div className="bomb">
+//                 <p>{this.state.message}</p>
+//             </div>
+//         )
+//     }
+// }
+
+// export default Bomb;
+
+
+
+
+class RouletteGun extends React.Component{
     state = {
-        count:0,
-        message:'',
-    };
-
-    componentDidMount(){
-        let interval = setInterval(() => {
-            this.setState({
-                count: this.state.count +1,
-            })
-            this.handleCount(interval);
-        }, 1000)
+        spinningTheChamber: false,
+        chamber: null,
+        message: '',
     }
+    handleClick = e => {
+        this.setState({
+            message: 'Spinning the chamber and pulling the trigger',
+            spinningTheChamber: true,
 
-    handleCount = interval => {
-        if (this.state.count >= 8){
+        })
+    
+    setTimeout(() => {
+            let randomNum = Math.floor(Math.random()*8);
             this.setState({
-                message: 'BOOM!!!',
+                chamber: randomNum,
+                spinningTheChamber: false,
             })
-            clearInterval(interval);
-        }
-        else if(this.state.count % 2 === 0){
-            this.setState({
-                message: 'Tick',
-            });
-        }
-        else {
-            this.setState({
-                message: 'Tock',
-            })
-        }
+            if (this.state.chamber === 8){
+                this.setState({
+                   message: 'BANG!!!', 
+                })
+            }
+                else {
+                    this.setState({
+                        message: 'You\'re safe!'
+                })
+            }
+        },2000);
+
+
     }
-
-    render(){
-        return(
-            <div className="bomb">
-                <p>{this.state.message}</p>
-            </div>
-        )
+    render() {
+    return (
+        <div>
+            <p>{this.state.message}</p>
+            <button onClick = {()=> this.handleClick()}>Pull the trigger!</button>
+        </div>
+    )
     }
 }
 
-export default Bomb;
+export default RouletteGun;
