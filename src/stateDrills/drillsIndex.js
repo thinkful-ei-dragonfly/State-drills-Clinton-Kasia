@@ -76,6 +76,7 @@ import React from 'react';
 
 
 class RouletteGun extends React.Component{
+    timeout = null;
     state = {
         spinningTheChamber: false,
         chamber: null,
@@ -88,7 +89,8 @@ class RouletteGun extends React.Component{
 
         })
     
-    setTimeout(() => {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
             let randomNum = Math.floor(Math.random()*8);
             this.setState({
                 chamber: randomNum,
