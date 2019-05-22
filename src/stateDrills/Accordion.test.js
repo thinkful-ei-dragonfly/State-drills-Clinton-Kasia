@@ -9,4 +9,10 @@ describe('Accordion Component', () => {
     ReactDOM.render(<Accordion />, div);
     ReactDOM.unmountComponentAtNode(div);
     })
+    it('renders the UI as expected', () => {
+        const tree = renderer
+          .create(<Accordion />)
+          .toJSON();
+        expect(tree).toMatchSnapshot();  
+        });
 });

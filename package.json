@@ -29,8 +29,11 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.1",
+=======
+>>>>>>> d87e1e66f772758107ce387af114cea14f0cc1a1
     "react-test-renderer": "^16.8.6"
   }
 }
