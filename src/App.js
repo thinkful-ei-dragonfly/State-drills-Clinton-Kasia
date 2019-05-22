@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import RouletteGun from './stateDrills/drillsIndex.js'
+import Accordion from './stateDrills/Accordion.js'
 
 function App() {
  
-return <RouletteGun />
+return <Accordion />
   
 }
 
