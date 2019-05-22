@@ -75,49 +75,49 @@ import React from 'react';
 
 
 
-class RouletteGun extends React.Component{
-    timeout = null;
-    state = {
-        spinningTheChamber: false,
-        chamber: null,
-        message: '',
-    }
-    handleClick = e => {
-        this.setState({
-            message: 'Spinning the chamber and pulling the trigger',
-            spinningTheChamber: true,
+// class RouletteGun extends React.Component{
+//     timeout = null;
+//     state = {
+//         spinningTheChamber: false,
+//         chamber: null,
+//         message: '',
+//     }
+//     handleClick = e => {
+//         this.setState({
+//             message: 'Spinning the chamber and pulling the trigger',
+//             spinningTheChamber: true,
 
-        })
+//         })
     
-    clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => {
-            let randomNum = Math.floor(Math.random()*8);
-            this.setState({
-                chamber: randomNum,
-                spinningTheChamber: false,
-            })
-            if (this.state.chamber === 8){
-                this.setState({
-                   message: 'BANG!!!', 
-                })
-            }
-                else {
-                    this.setState({
-                        message: 'You\'re safe!'
-                })
-            }
-        },2000);
+//     clearTimeout(this.timeout);
+//     this.timeout = setTimeout(() => {
+//             let randomNum = Math.floor(Math.random()*8);
+//             this.setState({
+//                 chamber: randomNum,
+//                 spinningTheChamber: false,
+//             })
+//             if (this.state.chamber === 8){
+//                 this.setState({
+//                    message: 'BANG!!!', 
+//                 })
+//             }
+//                 else {
+//                     this.setState({
+//                         message: 'You\'re safe!'
+//                 })
+//             }
+//         },2000);
 
 
-    }
-    render() {
-    return (
-        <div>
-            <p>{this.state.message}</p>
-            <button onClick = {()=> this.handleClick()}>Pull the trigger!</button>
-        </div>
-    )
-    }
-}
+//     }
+//     render() {
+//     return (
+//         <div>
+//             <p>{this.state.message}</p>
+//             <button onClick = {()=> this.handleClick()}>Pull the trigger!</button>
+//         </div>
+//     )
+//     }
+// }
 
-export default RouletteGun;
+// export default RouletteGun;
