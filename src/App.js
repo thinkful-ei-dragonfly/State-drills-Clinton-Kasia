@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Hello from './stateDrills/drillsIndex.js'
+import Bomb from './stateDrills/drillsIndex.js'
 
 function App() {
  
-return <Hello />
+return <Bomb />
   
 }
 
